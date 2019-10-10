@@ -199,7 +199,7 @@ def make_reltoroot(roots, args):
         else:
             raise ValueError("arg %s not relative to an rsync root" % (arg,))
         result.append(splitcode.join(parts))
-    return result
+    return result[1:] #remove 1st item on list, propsed quick fix for https://github.com/pytest-dev/pytest-xdist/issues/325
 
 
 class WorkerController(object):
